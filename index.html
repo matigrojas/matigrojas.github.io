@@ -235,7 +235,7 @@
               <div><span class="badge badge-success">PUBLICADO</span></div>
               <div>
                 <a href="https://www.ugd.edu.ar/revista-i-d/149-editorial-dachary/revistas/investigacion-y-desarrollo/951-revista-de-investigac" class="card-link" target="_blank">Sitio Web Revista</a>
-                <!--<a href="#" class="card-link">Ver PDF</a>-->
+                <a href="#showPdfIdo2" data-toggle="modal" data-target="#showPdfIdo2" class="card-link">Ver PDF</a>          
               </div>
             </div>
           </div>
@@ -251,7 +251,7 @@
               <p class="card-text"><b>Autores: </b> Fabian E. Favret, Matias G. Rojas, Hernan A. Pfeifer.</p>
               <div><span class="badge badge-success">PUBLICADO</span></div>
               <div>
-                <!--<a href="#" class="card-link">Ver PDF</a>-->
+                <a href="#showPdfConaiisi" data-toggle="modal" data-target="#showPdfConaiisi" class="card-link">Ver PDF</a>
               </div>
             </div>
           </div>
@@ -341,53 +341,40 @@
         </div>
       </div>
     </section>
-
-    <!--<hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
-      <div class="w-100">
-        <h2 class="mb-5">Intereses</h2>
-        <p>En Construcción</p>
-      </div>
-    </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
-      <div class="w-100">
-        <h2 class="mb-5">Awards &amp; Certifications</h2>
-        <ul class="fa-ul mb-0">
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            Google Analytics Certified Developer</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            Mobile Web Specialist - Google Certification</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            1<sup>st</sup>
-            Place - University of Colorado Boulder - Emerging Tech Competition 2009</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            1<sup>st</sup>
-            Place - University of Colorado Boulder - Adobe Creative Jam 2008 (UI Design Category)</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            2<sup>nd</sup>
-            Place - University of Colorado Boulder - Emerging Tech Competition 2008</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            1<sup>st</sup>
-            Place - James Buchanan High School - Hackathon 2006</li>
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-            3<sup>rd</sup>
-            Place - James Buchanan High School - Hackathon 2005</li>
-        </ul>
-      </div>
-    </section>-->
-
   </div>
+
+
+<div class="modal fade" id="showPdfConaiisi" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modelo de análisis semántico de contenido Web.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <embed src="articulos/art-conaiisi.pdf" frameborder="0" width="100%" height="400px">
+      </div>
+    </div>
+  </div>  
+</div>
+
+<div class="modal fade" id="showPdfIdo2" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modelo de análisis de información desestructurada utilizando técnicas de recopilación y minería web.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <embed src="articulos/ido2.pdf" frameborder="0" width="100%" height="400px">
+      </div>
+    </div>
+  </div>  
+</div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -404,6 +391,10 @@
       $('[data-toggle="tooltip"]').tooltip()
     })
   </script>
+
+
+
+
 
 </body>
 
