@@ -1,6 +1,10 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  // Reemplaza 'usuario' por tu nombre en GitHub y 'repositorio' por el nombre del repo
-  site: 'https://matigrojas.github.io/',
+  // URL principal de tu sitio
+  site: 'https://matigrojas.github.io',
+  
+  // Si el repo se llama 'matigrojas.github.io', base debe ser '/' o no estar.
+  // Solo usarías base: '/nombre-repo' si el repositorio tuviera otro nombre.
+  base: '/', 
 });
