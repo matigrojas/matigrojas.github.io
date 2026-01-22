@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ master ] # Se ejecuta cuando subes cambios a la rama main
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -16,4 +16,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Install, build, and upload
-        uses: withastro/action@v2 # Acción oficial de Astro para despliegue
+        uses: withastro/action@v2
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
