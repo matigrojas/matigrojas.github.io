@@ -1,0 +1,63 @@
+---
+import Section from "@/components/Section.astro"
+import skillsData from "../../../data/skills.json"
+
+const categories = Object.keys(skillsData);
+---
+
+<Section>
+  <div class="skills-wrapper">
+    {categories.map((category) => (
+      <div class="skill-group">
+        <h4>{category}</h4>
+        <ul class="badge-list">
+          {skillsData[category].map((skill) => (
+            <li class="skill-badge">{skill}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</Section>
+
+<style>
+  .skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .skill-group h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .skill-badge {
+    background: #f4f4f5;
+    color: #3f3f46;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #e4e4e7;
+    transition: all 0.2s ease;
+  }
+
+  .skill-badge:hover {
+    background: #18181b;
+    color: #ffffff;
+    border-color: #18181b;
+  }
+</style>

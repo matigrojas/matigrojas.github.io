@@ -1,0 +1,98 @@
+---
+import Section from "@/components/Section.astro"
+import work from "../../../data/work.json"
+---
+
+<Section>
+  <ul>
+    {
+      work.map(({ name, startDate, endDate, position, summary, highlights }) => {
+        const startYear = new Date(startDate).getFullYear()
+        const endYear = endDate != null ? new Date(endDate).getFullYear() : "Actual"
+        const years = `${startYear} — ${endYear}`
+
+        return (
+          <li>
+            <article>
+              <header>
+                <div>
+                  <h3>{name}</h3>
+                  <h4>{position}</h4>
+                </div>
+                <time>{years}</time>
+              </header>
+
+              <footer>
+                <p>{summary}</p>
+                <ul class="highlights">
+                  {highlights.map(h => <li>{h}</li>)}
+                </ul>
+              </footer>
+            </article>
+          </li>
+        )
+      })
+    }
+  </ul>
+</Section>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  article header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+  }
+
+  h4 {
+    font-size: 0.95rem;
+    color: #444;
+    font-weight: 500;
+  }
+
+  time {
+    color: #666;
+    font-size: 0.85rem;
+    font-family: ui-monospace, monospace;
+  }
+
+  footer p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  .highlights {
+    display: flex !important;       /* Fuerza el comportamiento flexible */
+    flex-direction: row !important;  /* Obliga a los hijos a ponerse uno al lado del otro */
+    flex-wrap: wrap;                 /* Permite saltar de línea solo si se acaba el espacio */
+    gap: 8px;
+    padding: 0;
+    margin-top: 12px;
+    list-style: none;
+  }
+
+  .highlights li {
+    display: inline-block;           /* El badge solo ocupa su propio contenido */
+    width: auto !important;          /* Anula cualquier ancho del 100% previo */
+    background: #eee;
+    color: #444;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;             /* Evita que el texto interno se parta */
+  }
+</style>

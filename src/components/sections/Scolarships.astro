@@ -1,0 +1,129 @@
+---
+import Section from "@/components/Section.astro"
+import scholarships from "../../../data/scolarships.json"
+---
+
+<Section>
+  <div class="scholarships-container">
+    {scholarships.map((item) => {
+      // Lógica para determinar si es una experiencia internacional
+      const isInternational = item.scope.toLowerCase().includes("international");
+
+      return (
+        <article class="scholarship-item">
+          <header>
+            <div class="header-main">
+              <h3>
+                {item.title}
+                {isInternational && <span class="intl-tag" title="Experiencia Internacional">🇮🇹 Internacional</span>}
+              </h3>
+              <time>{item.period}</time>
+            </div>
+            <p class="institution">
+              {item.institution}
+            </p>
+          </header>
+          
+          <div class="content">
+            <p class="project"><strong>Proyecto:</strong> {item.project}</p>
+            <p class="info">{item.details}</p>
+            <p class="location-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-loc"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <em>{item.location}</em>
+            </p>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+</Section>
+
+<style>
+  .scholarships-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.2rem;
+  }
+
+  .header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .intl-tag {
+    font-size: 0.65rem;
+    background: #f0fdf4;
+    color: #166534;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid #bbf7d0;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  time {
+    font-size: 0.85rem;
+    color: #666;
+    font-family: ui-monospace, monospace;
+    white-space: nowrap;
+  }
+
+  .institution {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #444;
+    margin-top: 2px;
+  }
+
+  .content {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .project {
+    color: #222;
+    margin-bottom: 6px;
+  }
+
+  .info {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 4px;
+  }
+
+  .location-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: #888;
+  }
+
+  .icon-loc {
+    color: #aaa;
+  }
+
+  @media (max-width: 700px) {
+    .header-main {
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    h3 {
+      flex-wrap: wrap;
+    }
+  }
+</style>

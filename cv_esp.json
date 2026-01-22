@@ -1,0 +1,105 @@
+{
+    "basics": {
+      "name": "Matías Gabriel Rojas",
+      "label": "Becario Doctoral CONICET • Ingeniero en Informática",
+      "image": "/me.webp",
+      "email": "rojasmatias994@gmail.com",
+      "email_conicet": "mrojas@mendoza-conicet.gob.ar",
+      "phone": "+54 3764 135174",
+      "url": "https://matigrojas.github.io",
+      "summary": "Ingeniero en informática. {{edad}} Años. Becario doctoral del Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET). Parte del Grupo de Ciencias de la Computación y los Datos en el Instituto Interdisciplinario de Ciencias Básicas (ICB). Mi trabajo se centra en el diseño e implementación de algoritmos de inteligencia computacional aplicados a problemas de bioinformática.",
+      "location": {
+        "address": "Av. Perú 730 Depto. 21.",
+        "postalCode": "5502",
+        "city": "Ciudad de Mendoza",
+        "countryCode": "AR",
+        "region": "Argentina"
+      },
+      "profiles": [
+        {
+          "network": "LinkedIn",
+          "url": "https://www.linkedin.com/in/matias-gabriel-rojas/"
+        },
+        {
+          "network": "Conicet",
+          "url": "https://www.conicet.gov.ar/new_scp/detalle.php?id=60753&datos_academicos=yes"
+        },
+        {
+            "network": "Orcid",
+            "url": "https://orcid.org/0000-0003-3881-0888"
+        },
+        {
+            "network": "Scholar",
+            "url": "https://scholar.google.com/citations?user=0b1sbAYAAAAJ"
+        },
+        {
+            "network": "ResearchGate",
+            "url": "https://www.researchgate.net/profile/Matias_Rojas19"
+        },
+        {
+          "network": "X",
+          "url": "https://x.com/EngMGRojas"
+        },
+        {
+          "network": "GitHub",
+          "url": "https://github.com/matigrojas"
+        }
+      ]
+    },
+    "education": [{
+      "institution": "Universidad Nacional de Cuyo",
+      "url": "https://fcen.uncuyo.edu.ar/",
+      "area": "Doctorado en Ciencia y Tecnología",
+      "studyType": "Doctorado",
+      "startDate": "2022-01-02"
+    },
+    {
+      "institution": "Universidad Gastón Dachary",
+      "url": "https://www.uugd.edu.ar/",
+      "area": "Ingeniería en Informática",
+      "studyType": "Ingeniería",
+      "startDate": "2013-01-02",
+      "endDate": "2019-01-02"
+    },
+    {
+      "institution": "Universidad Gastón Dachary",
+      "url": "https://www.ugd.edu.ar",
+      "area": "Analista Universitario de Sistemas",
+      "studyType": "Intermedio",
+      "startDate": "2013-01-02",
+      "endDate": "2017-01-02"
+    }],
+    "interests": [
+      {
+        "name": "Metaheurísticas para descubrimiento de fármacos",
+        "description": "Implementación de metaheurísticas aplicadas al diseño de fármacos para blancos moléculares específicos.",
+        "image": "/farmacos.png"
+      },
+      {
+        "name": "Análisis de expresión diferencial en cáncer",
+        "description": "Descubrimiento de biomarcadores y análisis de expresión diferencial en cáncer.",
+        "image": "/gene_exp.jpg"
+      
+      },
+      {
+        "name": "Producción de Muestras genéticas artificiales",
+        "description": "Uso de técnicas generativas para la producción de muestras de expresión génica artificiales.",
+        "image": "/co-exp.jpg"
+      },
+      {
+        "name": "Métodos alternativos de entrenamiento de redes neuronales para casos médicos",
+        "description": "Metaheurísticas aplicadas a la configuración de pesos y sesgos de redes neuronales para soporte al diagnóstico médico.",
+        "image": "/nn_opt.jpg"
+      },
+      {
+        "name": "Alineamiento múltiple de secuencias",
+        "description": "Diseño de metaheurísticas para el alineamiento múltiple de secuencias de ADN, ARN y Proteínas.",
+        "image": "/a.jpeg"
+      },
+      {
+        "name": "Ensamblado de fragmentos de ADN y diseño de estructuras ARN",
+        "description": "Aplicación de metaheurísticas multi y mono objetivo para el ensamblado de fragmentos de ADN y diseño de moléculas ARN que se adecúen a estructuras de plegado específicas.",
+        "image": "/rna.png"
+      }
+    ]
+  }

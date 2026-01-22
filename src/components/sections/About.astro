@@ -1,0 +1,35 @@
+---
+import Section from "@/components/Section.astro"
+import { basics } from "@cv"
+
+function calcularEdad(fechaNacimiento) {
+  const hoy = new Date();
+  const nacimiento = new Date(fechaNacimiento);
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  const m = hoy.getMonth() - nacimiento.getMonth();
+  if (m < 0 || (m === 0 && hoy.getDate() < nacimiento.getDate())) {
+    edad--;
+  }
+  return edad;
+}
+
+const fechaNacimiento = "1994-10-09"; // YYYY-MM-DD
+const edad = calcularEdad(fechaNacimiento);
+
+// Reemplazamos {{edad}} por la edad actual en tiempo de build
+const summary = basics.summary.replace("{{edad}}", edad);
+---
+
+<Section title="Sobre mí">
+  <p class="about-text">
+    {summary}
+  </p>
+</Section>
+
+<style>
+  .about-text {
+    text-align: justify;
+    line-height: 1.5; /* Mejora la legibilidad al justificar */
+    hyphens: auto;    /* Opcional: añade guiones para evitar huecos grandes entre palabras */
+  }
+</style>

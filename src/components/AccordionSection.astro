@@ -1,0 +1,68 @@
+---
+// src/components/AccordionSection.astro
+interface Props {
+  title: string;
+  open?: boolean;
+}
+
+const { title, open = false } = Astro.props;
+---
+
+<details open={open}>
+  <summary>
+    <h2>{title}</h2>
+    <span class="icon">↓</span>
+  </summary>
+  <div class="content">
+    <slot />
+  </div>
+</details>
+
+<style>
+  details {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+
+  summary {
+    display: flex;
+    justify-content: space-between; /* Empuja la flecha al extremo derecho */
+    align-items: center;           /* Centra verticalmente la flecha con el texto */
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem 0;               /* Añade espacio para que sea fácil clickear */
+  }
+
+  /* Para quitar la flecha por defecto en todos los navegadores */
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary h2 {
+    margin: 0; /* Quita el margen para que no desalinee la flecha */
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+    color: #666;
+    transition: transform 0.3s ease;
+  }
+
+  /* Rotación de la flecha cuando se abre */
+  details[open] .icon {
+    transform: rotate(180deg);
+  }
+
+  .content {
+    padding-top: 1.5rem;
+    animation: slideDown 0.3s ease-out;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

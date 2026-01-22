@@ -1,0 +1,147 @@
+---
+import Section from "@/components/Section.astro"
+import { interests } from "@cv"
+---
+
+<Section title="Temas de interés">
+  <ul>
+    {
+      interests.map(({ description, name, image }) => {
+        return (
+          // Añadimos una key única (usando el name)
+          <li key={name}>
+            <article style={`background-image: url('${image}'); background-size: cover; background-position: center;`}>
+              <header>
+                <h3>
+                  {name}
+                </h3>
+                <p>{description}</p>
+              </header>
+            </article>
+          </li>
+        )
+      })
+    }
+  </ul>
+</Section>
+
+<style>
+    ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-inline: -16px;
+    }
+  
+    article {
+      min-height: 150px; 
+      position: relative;
+      border-radius: 8px;
+      border: 1px solid #f2f2f2;
+      gap: 16px;
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      height: 100%;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+      background-blend-mode: overlay;
+    }
+
+    article::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4); /* oscurece un poco la imagen */
+      z-index: 0;
+      border-radius: 8px;
+    }
+  
+    article header {
+      position: relative;
+      z-index: 1;
+    }
+  
+    article h3 {
+      margin-bottom: 4px;
+    }
+  
+    article a {
+      color: #111;
+    }
+
+    article:hover {
+      transform: scale(1.02);
+      transition: transform 0.3s ease;
+      cursor: default; /* Ya que no son enlaces, evita el cursor de mano si no quieres confundir */
+    }
+  
+    article a:hover {
+      text-decoration: underline;
+    }
+  
+    article p {
+      font-size: 0.75rem;
+      line-height: 1.2rem;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+  
+    article h3 span {
+      color: rgb(0, 188, 47);
+      animation-name: flicker;
+      animation-duration: 3s;
+      animation-timing-function: ease-in;
+      animation-iteration-count: infinite;
+    }
+  
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 0.6rem;
+    }
+  
+    footer span {
+      border-radius: 6px;
+      background: #eee;
+      color: #444;
+      font-size: 0.6rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+    }
+  
+    .github-code-link {
+      margin-left: 5px;
+    }
+  
+    @keyframes flicker {
+      0% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.25;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    @media (width <= 700px) {
+      ul {
+        margin-inline: 0px;
+      }
+  
+      article {
+        border: none;
+        box-shadow: 0 1px 1px #f2f2f2;
+        padding: 0 0 16px 0;
+      }
+    }
+  
+    @media print {
+      article h3 span {
+        animation-name: none;
+      }
+    }
+  </style>

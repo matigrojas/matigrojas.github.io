@@ -1,0 +1,90 @@
+---
+import Section from "@/components/Section.astro"
+import teaching from "../../../data/teaching.json"
+---
+
+<Section>
+  <div class="teaching-container">
+    {teaching.map((item) => (
+      <article class="teaching-item">
+        <header>
+          <div class="header-main">
+            <h3>{item.role}</h3>
+            <time>{item.period}</time>
+          </div>
+          <p class="institution">{item.institution}</p>
+        </header>
+        
+        <div class="content">
+          <p class="subject"><strong>Asignatura:</strong> {item.subject}</p>
+          <p class="details">
+            {item.career} • {item.faculty}
+          </p>
+          <p class="area-info">
+            {item.discipline} | {item.area}
+          </p>
+        </div>
+      </article>
+    ))}
+  </div>
+</Section>
+
+<style>
+  .teaching-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+    margin: 0;
+  }
+
+  time {
+    font-size: 0.85rem;
+    color: #666;
+    font-family: ui-monospace, monospace;
+    white-space: nowrap;
+  }
+
+  .institution {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+    margin-top: 2px;
+  }
+
+  .content {
+    margin-top: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  .subject {
+    color: #111;
+    margin-bottom: 2px;
+  }
+
+  .details, .area-info {
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  @media (max-width: 700px) {
+    .header-main {
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+  }
+</style>
