@@ -1,7 +1,17 @@
 ---
 import Section from "@/components/Section.astro"
 
-import { education } from "@cv"
+const { lang = 'es' } = Astro.props;
+
+// Diccionario para términos que no vienen del JSON
+const i18n = {
+  es: { present: "Presente" },
+  en: { present: "Present" }
+};
+
+// Cargamos el archivo correspondiente usando la ruta segura para Vite
+const cvModule = await import(`../../../data/${lang}/cv.json`);
+const { education } = cvModule.default;
 ---
 
 <Section>
@@ -9,7 +19,12 @@ import { education } from "@cv"
         {
             education.map(({ institution, startDate, endDate, area }) => {
                 const startYear = new Date(startDate).getFullYear()
-                const endYear = endDate != null ? new Date(endDate).getFullYear() : "Presente"
+                
+                // Determinamos el año de fin o el texto "Presente/Present"
+                const endYear = endDate != null 
+                    ? new Date(endDate).getFullYear() 
+                    : i18n[lang].present
+                
                 const years = `${startYear} - ${endYear}`
 
                 return (
@@ -19,7 +34,6 @@ import { education } from "@cv"
                                 <div>
                                     <h3>{institution}</h3>
                                 </div>
-
                                 <time>{years}</time>
                             </header>
 

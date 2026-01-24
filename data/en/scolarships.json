@@ -1,0 +1,32 @@
+[
+  {
+    "category": "Research",
+    "title": "Doctoral Research Fellowship",
+    "institution": "CONICET",
+    "project": "Design and development of metaheuristic techniques applied to bioinformatics problems",
+    "period": "04/2021 — 03/2027",
+    "location": "Interdisciplinary Institute of Basic Sciences (ICB), Mendoza",
+    "details": "Advisor: Dra. Jessica Andrea Carballido | Co-Advisor: Dra. Ana Carolina Olivera",
+    "scope": "national"
+  },
+  {
+    "category": "Postgraduate Courses",
+    "title": "Postgraduate Course Scholarship",
+    "institution": "University of Padua / Ministry of Education (AR)",
+    "project": "Advanced Bioinformatics Methods",
+    "period": "04/2022 — 09/2022",
+    "location": "Padua, Italy",
+    "details": "Full scholarship covering travel expenses, transportation, and living allowance.",
+    "scope": "international"
+  },
+  {
+    "category": "Research",
+    "title": "Research, Innovation, and Technological Development Scholarship",
+    "institution": "CEDIT",
+    "project": "Prototype of a web document classification system based on semantic relevance",
+    "period": "11/2018 — 11/2019",
+    "location": "CITIC, Gastón Dachary University, Misiones",
+    "details": "Advisor: Ing. Fabián Edgardo Favrét",
+    "scope": "national"
+  }
+]

@@ -1,12 +1,41 @@
 ---
 import Section from "@/components/Section.astro"
-import publications from "../../../data/publications.json"
+const { lang = 'es' } = Astro.props;
 
-// Tu nombre exacto para el resaltado automático
+// Diccionario para la lógica del renderizado de autores y links
+const i18n = {
+  es: {
+    and: " y ",
+    view: "Ver publicación ↗",
+    types: {
+      "journal": "Revista Científica",
+      "international conference": "Congreso Internacional",
+      "national conference": "Congreso Nacional",
+      "book chapter": "Capítulo de Libro"
+    }
+  },
+  en: {
+    and: " and ",
+    view: "View publication ↗",
+    types: {
+      "journal": "Journal Article",
+      "international conference": "International Conference",
+      "national conference": "National Conference",
+      "book chapter": "Book Chapter"
+    }
+  }
+};
+
+// Cargamos el archivo correspondiente mediante importación dinámica segura
+const publicationsModule = await import(`../../../data/${lang}/publications.json`);
+const publications = publicationsModule.default;
+
 const MY_NAME = "Matías Gabriel Rojas";
 
+// Ordenar por año (descendente)
 const sortedPubs = publications.sort((a, b) => b.year - a.year);
 
+// Agrupar por año
 const groups = sortedPubs.reduce((acc, pub) => {
   const year = pub.year;
   if (!acc[year]) acc[year] = [];
@@ -27,16 +56,17 @@ const years = Object.keys(groups).sort((a, b) => b - a);
             <li class="pub-card">
               <header>
                 <div class="meta">
-                  <span class={`badge ${pub.type.toLowerCase().replace(' ', '-')}`}>
-                    {pub.type}
+                  <span class={`badge ${pub.type.toLowerCase().replace(/\s+/g, '-')}`}>
+                    {i18n[lang].types[pub.type.toLowerCase()] || pub.type}
                   </span>
                 </div>
                 <h3>{pub.title}</h3>
                 <p class="authors">
-                  {pub.authors.split(/, | y /).map((author, i, arr) => (
+                  {/* Separamos por coma o por el conector idiomático original del JSON */}
+                  {pub.authors.split(/, | y | and /).map((author, i, arr) => (
                     <span>
                       {author.trim() === MY_NAME ? <strong>{author}</strong> : author}
-                      {i < arr.length - 1 ? (i === arr.length - 2 ? " y " : ", ") : ""}
+                      {i < arr.length - 1 ? (i === arr.length - 2 ? i18n[lang].and : ", ") : ""}
                     </span>
                   ))}
                 </p>
@@ -46,7 +76,7 @@ const years = Object.keys(groups).sort((a, b) => b - a);
                 </p>
                 {pub.url && (
                   <a href={pub.url} target="_blank" rel="noopener noreferrer" class="external-link">
-                    Ver publicación ↗
+                    {i18n[lang].view}
                   </a>
                 )}
               </header>
@@ -59,25 +89,23 @@ const years = Object.keys(groups).sort((a, b) => b - a);
 </Section>
 
 <style>
+  /* Se mantienen tus estilos originales para asegurar la estética profesional */
   .publications-wrapper {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
   }
-
   .year-block {
     display: grid;
     grid-template-columns: 70px 1fr;
     gap: 1.5rem;
   }
-
   .year-label {
     font-size: 1.2rem;
     font-weight: 700;
     color: #666;
     opacity: 0.8;
   }
-
   .pub-list {
     list-style: none;
     padding: 0;
@@ -86,7 +114,6 @@ const years = Object.keys(groups).sort((a, b) => b - a);
     flex-direction: column;
     gap: 1.8rem;
   }
-
   .pub-card h3 {
     font-size: 1.05rem;
     font-weight: 600;
@@ -94,30 +121,25 @@ const years = Object.keys(groups).sort((a, b) => b - a);
     margin: 6px 0;
     color: #111;
   }
-
   .authors {
     font-size: 0.9rem;
     color: #444;
     margin-bottom: 4px;
   }
-
   .authors strong {
     color: #000;
     font-weight: 700;
   }
-
   .journal-info {
     font-size: 0.85rem;
     font-style: italic;
     color: #666;
   }
-
   .doi-text {
     font-style: normal;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: ui-monospace, monospace;
     font-size: 0.75rem;
   }
-
   .badge {
     font-size: 0.6rem;
     font-weight: 800;
@@ -126,12 +148,9 @@ const years = Object.keys(groups).sort((a, b) => b - a);
     text-transform: uppercase;
     letter-spacing: 0.02em;
   }
-
-  /* Colores basados en el tipo de publicación */
   .journal { background: #e0f2fe; color: #0369a1; }
   .international-conference { background: #fef2f2; color: #991b1b; }
   .national-conference { background: #f0fdf4; color: #166534; }
-
   .external-link {
     display: inline-block;
     margin-top: 8px;
@@ -140,20 +159,9 @@ const years = Object.keys(groups).sort((a, b) => b - a);
     text-decoration: none;
     font-weight: 500;
   }
-
-  .external-link:hover {
-    text-decoration: underline;
-  }
-
+  .external-link:hover { text-decoration: underline; }
   @media (max-width: 700px) {
-    .year-block {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-    }
-    .year-label {
-      border-bottom: 1px solid #eee;
-      display: block;
-      width: 100%;
-    }
+    .year-block { grid-template-columns: 1fr; gap: 0.5rem; }
+    .year-label { border-bottom: 1px solid #eee; display: block; width: 100%; }
   }
 </style>

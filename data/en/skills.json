@@ -1,0 +1,21 @@
+{
+  "AI & Optimization": [
+    "Metaheuristics", 
+    "Machine Learning", 
+    "Deep Learning"
+  ],
+  "Bioinformatics": [
+    "Drug Design", 
+    "Functional Genomics", 
+    "Structural Genomics"
+  ],
+  "Development & Tools": [
+    "Python", 
+    "C++", 
+    "R", 
+    "LaTeX", 
+    "Git", 
+    "Astro", 
+    "Linux"
+  ]
+}

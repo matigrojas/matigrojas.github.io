@@ -1,6 +1,11 @@
 ---
 import Section from "@/components/Section.astro"
-import skillsData from "../../../data/skills.json"
+
+const { lang = 'es' } = Astro.props;
+
+// Cargamos el archivo correspondiente
+const skillsData = (await import(`../../../data/${lang}/skills.json`)).default;
+
 
 const categories = Object.keys(skillsData);
 ---

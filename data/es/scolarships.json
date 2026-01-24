@@ -1,0 +1,32 @@
+[
+  {
+    "category": "Investigación",
+    "title": "Beca Interna Doctoral",
+    "institution": "CONICET",
+    "project": "Diseño y desarrollo de técnicas metaheurísticas aplicadas a problemas de bioinformática",
+    "period": "04/2021 — 03/2027",
+    "location": "Instituto Interdisciplinario de Ciencias Básicas (ICB), Mendoza",
+    "details": "Directora: Dra. Jessica Andrea Carballido | Co-Directora: Dra. Ana Carolina Olivera",
+    "scope": "national"
+  },
+  {
+    "category": "Cursos de Posgrado",
+    "title": "Beca de Curso de Posgrado",
+    "institution": "Università degli Studi di Padova / Ministerio de Educación AR",
+    "project": "Métodos Avanzados de Bioinformática",
+    "period": "04/2022 — 09/2022",
+    "location": "Padua, Italia",
+    "details": "La beca incluyó cobertura total de viáticos, traslados y gastos de alimentación.",
+    "scope": "international"
+  },
+  {
+    "category": "Investigación",
+    "title": "Beca de Investigación, Innovación y Desarrollo Tecnológico",
+    "institution": "CEDIT",
+    "project": "Prototipo de sistema de clasificación de documentos web basado en relevancia semántica",
+    "period": "11/2018 — 11/2019",
+    "location": "CITIC, Universidad Gastón Dachary, Misiones",
+    "details": "Director: Ing. Fabián Edgardo Favrét",
+    "scope": "national"
+  }
+]

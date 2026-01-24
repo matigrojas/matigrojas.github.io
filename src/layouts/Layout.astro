@@ -1,34 +1,35 @@
 ---
-import { basics } from "@cv" /* Se carga el json con el texto */
-
+// Eliminamos la importación fija de @cv para usar la dinámica
 interface Props {
-	title: string
+  title: string
+  lang?: string // Añadimos la prop de idioma
 }
 
-const { title } = Astro.props
-const {image, summary, url} = basics
+const { title, lang = 'es' } = Astro.props
+
+// Cargamos los datos básicos según el idioma para los metadatos
+const basics = (await import(`../../data/${lang}/cv.json`)).default.basics;
+const { image, summary, url } = basics
 ---
 
 <!doctype html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<title>{title}</title>
-	<meta name="description" content={summary} />
-	<meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<link rel="preload" as="image" href={image} />
+<html lang={lang}> <head>
+    <meta charset="UTF-8">
+    <title>{title}</title>
+    <meta name="description" content={summary} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="image" href={image} />
 
-	<meta property="og:url" content={url}/>
-	<meta property="og:type" content="website" />
+    <meta property="og:url" content={url}/>
+    <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={summary} />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content={image} />
 </head>
 <body>
-	<slot/>
+    <slot/>
 </body>
-
 </html>
 
 <style is:global>

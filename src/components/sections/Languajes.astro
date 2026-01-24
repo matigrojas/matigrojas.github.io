@@ -1,6 +1,11 @@
 ---
 import Section from "@/components/Section.astro"
-import languages from "../../../data/languajes.json"
+
+const { lang = 'es' } = Astro.props;
+
+// Cargamos el archivo correspondiente
+const languages = (await import(`../../../data/${lang}/languajes.json`)).default;
+
 ---
 
 <Section>

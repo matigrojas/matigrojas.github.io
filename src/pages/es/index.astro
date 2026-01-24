@@ -1,0 +1,78 @@
+---
+import Layout from "@/layouts/Layout.astro"
+import Hero from "@/components/sections/Hero.astro"
+import About from "@/components/sections/About.astro"
+import Interest from "@/components/sections/Interest.astro"
+import Education from "@/components/sections/Education.astro"
+import Publications from "@/components/sections/Publications.astro"
+import Projects from "@/components/sections/projects.astro"
+import AccordionSection from "@/components/AccordionSection.astro"
+import Scolarships from "@/components/sections/Scolarships.astro"
+import Languajes from "@/components/sections/Languajes.astro"
+import Skills from "@/components/sections/Skills.astro"
+import Teaching from "@/components/sections/Teaching.astro"
+import Experience from "@/components/sections/Experience.astro"
+import LanguagePicker from "@/components/sections/LanguagePicker.astro"
+
+
+import { basics } from "../../../data/es/cv.json"
+const { name, label } = basics
+---
+
+<Layout title={`${name}-${label}`}>
+	<main>
+		<LanguagePicker currentLang="es" />
+		<Hero lang="es"/>
+		<About lang="es"/>
+		<Interest lang="es"/>
+
+		<AccordionSection title="Educación">
+  			<Education lang="es" />
+		</AccordionSection>
+
+		<AccordionSection title="Publicaciones científicas">
+			<Publications lang="es" />
+		</AccordionSection>
+
+		<AccordionSection title="Docencia">
+			<Teaching lang="es" />
+		</AccordionSection>
+
+		<AccordionSection title="Experiencia laboral">
+			<Experience lang="es" />
+		</AccordionSection>
+		
+		<AccordionSection title="Becas obtenidas">
+  			<Scolarships lang="es" />
+		</AccordionSection>
+
+		<AccordionSection title="Proyectos de investigación">
+			<Projects lang="es" />
+		</AccordionSection>
+
+		<AccordionSection title="Habilidades técnicas">
+			<Skills lang="es" />
+		</AccordionSection>
+
+		<AccordionSection title="Idiomas">
+			<Languajes lang="es" />
+		</AccordionSection>
+	</main>
+</Layout>
+
+<style>
+    main {
+      padding: 4rem;
+      margin: auto;
+      width: 100%;
+      /* Añade estas dos líneas */
+      max-width: 800px; 
+      box-sizing: border-box;
+    }
+  
+    @media (width <= 700px) {
+      main {
+        padding: 2rem;
+      }
+    }
+</style>

@@ -1,6 +1,17 @@
 ---
 import Section from "@/components/Section.astro"
-import teaching from "../../../data/teaching.json"
+
+const { lang = 'es' } = Astro.props;
+
+// 1. Diccionario para etiquetas fijas del componente
+const labels = {
+  es: { subject: "Asignatura" },
+  en: { subject: "Subject" }
+};
+
+// 2. Importación dinámica segura del archivo JSON
+const teachingModule = await import(`../../../data/${lang}/teaching.json`);
+const teaching = teachingModule.default;
 ---
 
 <Section>
@@ -16,7 +27,9 @@ import teaching from "../../../data/teaching.json"
         </header>
         
         <div class="content">
-          <p class="subject"><strong>Asignatura:</strong> {item.subject}</p>
+          <p class="subject">
+            <strong>{labels[lang].subject}:</strong> {item.subject}
+          </p>
           <p class="details">
             {item.career} • {item.faculty}
           </p>

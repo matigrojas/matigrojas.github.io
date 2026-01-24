@@ -1,6 +1,24 @@
 ---
 import Section from "@/components/Section.astro"
-import projects from "../../../data/projects.json"
+const { lang = 'es' } = Astro.props;
+
+// Diccionario de etiquetas dinámicas con terminología académica internacional
+const i18n = {
+  es: {
+    advisor: "Director/a",
+    coAdvisor: "Co-Director/a",
+    funding: "Financiamiento"
+  },
+  en: {
+    advisor: "Project Director",
+    coAdvisor: "Co-director",
+    funding: "Funding"
+  }
+};
+
+// Cargamos el archivo correspondiente mediante importación dinámica segura
+const projectsModule = await import(`../../../data/${lang}/projects.json`);
+const projects = projectsModule.default;
 ---
 
 <Section>
@@ -23,13 +41,13 @@ import projects from "../../../data/projects.json"
 
         <div class="details">
           <p>
-            <strong>Director/a:</strong> {project.director}
-            {project.coDirector && <span> | <strong>Co-Director/a:</strong> {project.coDirector}</span>}
+            <strong>{i18n[lang].advisor}:</strong> {project.director}
+            {project.coDirector && <span> | <strong>{i18n[lang].coAdvisor}:</strong> {project.coDirector}</span>}
           </p>
           <p class="id-amount">
             <span>ID: {project.id}</span>
             <span class="separator">•</span>
-            <span>Financiamiento: {project.amount}</span>
+            <span>{i18n[lang].funding}: {project.amount}</span>
           </p>
         </div>
       </article>

@@ -1,12 +1,29 @@
 ---
 import Section from "@/components/Section.astro"
-import scholarships from "../../../data/scolarships.json"
+const { lang = 'es' } = Astro.props;
+
+// Diccionario de etiquetas dinámicas
+const i18n = {
+  es: {
+    project: "Proyecto",
+    intlTag: "Internacional",
+    intlTitle: "Experiencia Internacional"
+  },
+  en: {
+    project: "Project",
+    intlTag: "International",
+    intlTitle: "International Experience"
+  }
+};
+
+// Importación dinámica segura
+const scholarshipsModule = await import(`../../../data/${lang}/scolarships.json`);
+const scholarships = scholarshipsModule.default;
 ---
 
 <Section>
   <div class="scholarships-container">
     {scholarships.map((item) => {
-      // Lógica para determinar si es una experiencia internacional
       const isInternational = item.scope.toLowerCase().includes("international");
 
       return (
@@ -15,7 +32,11 @@ import scholarships from "../../../data/scolarships.json"
             <div class="header-main">
               <h3>
                 {item.title}
-                {isInternational && <span class="intl-tag" title="Experiencia Internacional">🇮🇹 Internacional</span>}
+                {isInternational && (
+                  <span class="intl-tag" title={i18n[lang].intlTitle}>
+                    🇮🇹 {i18n[lang].intlTag}
+                  </span>
+                )}
               </h3>
               <time>{item.period}</time>
             </div>
@@ -25,7 +46,7 @@ import scholarships from "../../../data/scolarships.json"
           </header>
           
           <div class="content">
-            <p class="project"><strong>Proyecto:</strong> {item.project}</p>
+            <p class="project"><strong>{i18n[lang].project}:</strong> {item.project}</p>
             <p class="info">{item.details}</p>
             <p class="location-wrapper">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-loc"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -39,19 +60,18 @@ import scholarships from "../../../data/scolarships.json"
 </Section>
 
 <style>
+  /* Se mantienen tus estilos originales */
   .scholarships-container {
     display: flex;
     flex-direction: column;
     gap: 2.2rem;
   }
-
   .header-main {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 1rem;
   }
-
   h3 {
     font-size: 1.15rem;
     font-weight: 700;
@@ -61,7 +81,6 @@ import scholarships from "../../../data/scolarships.json"
     align-items: center;
     gap: 8px;
   }
-
   .intl-tag {
     font-size: 0.65rem;
     background: #f0fdf4;
@@ -72,39 +91,33 @@ import scholarships from "../../../data/scolarships.json"
     font-weight: 600;
     text-transform: uppercase;
   }
-
   time {
     font-size: 0.85rem;
     color: #666;
     font-family: ui-monospace, monospace;
     white-space: nowrap;
   }
-
   .institution {
     font-size: 1rem;
     font-weight: 500;
     color: #444;
     margin-top: 2px;
   }
-
   .content {
     margin-top: 10px;
     font-size: 0.95rem;
     color: #555;
     line-height: 1.5;
   }
-
   .project {
     color: #222;
     margin-bottom: 6px;
   }
-
   .info {
     font-size: 0.9rem;
     color: #666;
     margin-bottom: 4px;
   }
-
   .location-wrapper {
     display: flex;
     align-items: center;
@@ -112,11 +125,9 @@ import scholarships from "../../../data/scolarships.json"
     font-size: 0.85rem;
     color: #888;
   }
-
   .icon-loc {
     color: #aaa;
   }
-
   @media (max-width: 700px) {
     .header-main {
       flex-direction: column;

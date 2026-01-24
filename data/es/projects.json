@@ -1,0 +1,61 @@
+[
+  {
+    "id": "80020240100021UN",
+    "resolution": "Res. 1651/2025",
+    "institution": "Universidad Nacional de Cuyo - SIIP",
+    "title": "Métodos inteligentes utilizados en el procesamiento de imágenes y su aplicación en la resolución de problemas socio-productivos",
+    "director": "Dra. Ana Carolina Olivera",
+    "coDirector": "Dr. Pablo Javier Vidal",
+    "period": "05/2025 — 04/2027",
+    "amount": "$ 300.000 ARS"
+  },
+  {
+    "id": "24/N061",
+    "resolution": "Res. CSU-378/2025",
+    "institution": "Universidad Nacional del Sur - SGCyT",
+    "title": "Desarrollo de Algoritmos, modelado predictivo y análisis bioinformático basado en el desarrollo de técnicas de aprendizaje automático",
+    "director": "Dra. Jessica Andrea Carballido",
+    "coDirector": "Dra. Rocio L. Cecchini",
+    "period": "01/2025 — 12/2028",
+    "amount": "$ 1.450.964 ARS"
+  },
+  {
+    "id": "PIP 2023-2025",
+    "resolution": "RD - EX-2022-90513226-APN-DCP#CONICET",
+    "institution": "CONICET",
+    "title": "Desarrollo de métodos inteligentes para la detección temprana de enfermedades utilizando imágenes digitales en problemas transferibles al sector socio-productivo",
+    "director": "Dra. Ana Carolina Olivera",
+    "coDirector": "Dr. Emmanuel Nicolás Millán",
+    "period": "08/2024 — 08/2026",
+    "amount": "$ 2.950.000 ARS"
+  },
+  {
+    "id": "24/N052",
+    "resolution": "Res. CSU-362/2020",
+    "institution": "Universidad Nacional del Sur - SGCyT",
+    "title": "Modelado predictivo en bioinformática basado en el desarrollo de técnicas de computación evolutiva y aprendizaje automático",
+    "director": "Dra. Jessica Andrea Carballido",
+    "period": "01/2020 — 12/2024",
+    "amount": "$ 109.993 ARS"
+  },
+  {
+    "id": "06/B052-T1",
+    "resolution": "Res. 3978/2022",
+    "institution": "Universidad Nacional de Cuyo - SIIP",
+    "title": "Inteligencia computacional aplicada a problemas de optimización",
+    "director": "Dra. Ana Carolina Olivera",
+    "coDirector": "Dr. Pablo Javier Vidal",
+    "period": "05/2022 — 04/2024",
+    "amount": "$ 80.000 ARS"
+  },
+  {
+    "id": "06/B081-B",
+    "resolution": "Res. 4142/2019",
+    "institution": "Universidad Nacional de Cuyo - SIIP",
+    "title": "Diseño y desarrollo de herramientas metaheurísticas y aplicaciones novedosas orientadas a smart mobility",
+    "director": "Dra. Ana Carolina Olivera",
+    "coDirector": "Dr. Pablo Javier Vidal",
+    "period": "03/2020 — 12/2021",
+    "amount": "$ 22.500 ARS"
+  }
+]

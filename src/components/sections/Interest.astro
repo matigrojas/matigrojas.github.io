@@ -1,9 +1,24 @@
 ---
 import Section from "@/components/Section.astro"
-import { interests } from "@cv"
+
+const { lang = 'es' } = Astro.props;
+
+// Cargamos el archivo correspondiente
+const basics = (await import(`../../../data/${lang}/cv.json`)).default;
+const { interests } = basics
+
+
+const i18n = {
+  es: {
+    titulo: "Temas de interés"
+  },
+  en: {
+    titulo: "Interests"
+  }
+};
 ---
 
-<Section title="Temas de interés">
+<Section title={i18n[lang].titulo}>
   <ul>
     {
       interests.map(({ description, name, image }) => {
@@ -38,32 +53,60 @@ import { interests } from "@cv"
       position: relative;
       border-radius: 8px;
       border: 1px solid #f2f2f2;
-      gap: 16px;
       display: flex;
       flex-direction: column;
       padding: 16px;
       height: 100%;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
-      background-blend-mode: overlay;
+      overflow: hidden;
+      transition: transform 0.3s ease;
     }
 
+    /* Esta es la capa de la IMAGEN */
     article::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.4); /* oscurece un poco la imagen */
+      /* Usamos la variable que pasamos desde el Astro */
+      background-image: var(--image-url);
+      background-size: cover;
+      background-position: center;
+      
+      /* Capa de oscurecimiento inicial integrada con la imagen */
+      background-color: rgba(0, 0, 0, 0.4);
+      background-blend-mode: darken;
+      
+      filter: grayscale(0%);
+      transition: filter 0.3s ease, background-color 0.3s ease;
       z-index: 0;
-      border-radius: 8px;
     }
-  
+
+    /* Estilos del TEXTO (Ahora son independientes de los filtros del padre) */
     article header {
       position: relative;
-      z-index: 1;
+      z-index: 1; /* Por encima de la imagen */
     }
-  
+
     article h3 {
+      color: #ffffff !important; /* Blanco puro */
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
       margin-bottom: 4px;
+    }
+
+    article p {
+      color: #ffffff !important; /* Blanco puro */
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+      font-size: 0.75rem;
+      line-height: 1.2rem;
+    }
+
+    /* HOVER: Solo afecta a la imagen y al contenedor */
+    article:hover {
+      transform: scale(1.02);
+    }
+
+    article:hover::before {
+      filter: grayscale(100%);
+      background-color: rgba(0, 0, 0, 0.6); /* Oscurecemos más para que el texto resalte */
     }
   
     article a {

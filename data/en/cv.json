@@ -1,0 +1,106 @@
+{
+  "basics": {
+    "name": "Matías Gabriel Rojas",
+    "label": "CONICET Doctoral Fellow • BSc in Computer Sciences",
+    "image": "/me.webp",
+    "email": "rojasmatias994@gmail.com",
+    "email_conicet": "mrojas@mendoza-conicet.gob.ar",
+    "phone": "+54 3764 135174",
+    "url": "https://matigrojas.github.io",
+    "summary": "Bachelor of science in computer science. {{edad}} years old. Doctoral Fellow at Consejo Nacional de Investigaciónes Científicas y Técnicas (CONICET), Argentina. Member of the Computing and Data Sciences Group at the Interdisciplinary Institute of Basic Sciences (ICB). My research focuses on the design and implementation of computational intelligence algorithms applied to bioinformatics problems.",
+    "location": {
+      "address": "Av. Perú 730 Depto. 21.",
+      "postalCode": "5502",
+      "city": "Mendoza City",
+      "countryCode": "AR",
+      "region": "Argentina"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "url": "https://www.linkedin.com/in/matias-gabriel-rojas/"
+      },
+      {
+        "network": "Conicet",
+        "url": "https://www.conicet.gov.ar/new_scp/detalle.php?id=60753&datos_academicos=yes"
+      },
+      {
+        "network": "Orcid",
+        "url": "https://orcid.org/0000-0003-3881-0888"
+      },
+      {
+        "network": "Scholar",
+        "url": "https://scholar.google.com/citations?user=0b1sbAYAAAAJ"
+      },
+      {
+        "network": "ResearchGate",
+        "url": "https://www.researchgate.net/profile/Matias_Rojas19"
+      },
+      {
+        "network": "X",
+        "url": "https://x.com/EngMGRojas"
+      },
+      {
+        "network": "GitHub",
+        "url": "https://github.com/matigrojas"
+      }
+    ]
+  },
+  "education": [
+    {
+      "institution": "National University of Cuyo",
+      "url": "https://fcen.uncuyo.edu.ar/",
+      "area": "PhD in Science and Technology",
+      "studyType": "Doctorate",
+      "startDate": "2022-01-02"
+    },
+    {
+      "institution": "Gastón Dachary University",
+      "url": "https://www.uugd.edu.ar/",
+      "area": "BSc in Computer Sciences",
+      "studyType": "Degree",
+      "startDate": "2013-01-02",
+      "endDate": "2019-01-02"
+    },
+    {
+      "institution": "Gastón Dachary University",
+      "url": "https://www.ugd.edu.ar",
+      "area": "Systems Analyst",
+      "studyType": "Degree",
+      "startDate": "2013-01-02",
+      "endDate": "2017-01-02"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Metaheuristics for Drug Discovery",
+      "description": "Implementation of metaheuristics applied to drug design for specific molecular targets.",
+      "image": "/farmacos.png"
+    },
+    {
+      "name": "Differential Expression Analysis in Cancer",
+      "description": "Biomarker discovery and differential gene expression analysis in cancer.",
+      "image": "/gene_exp.jpg"
+    },
+    {
+      "name": "Artificial Genetic Sample Production",
+      "description": "Use of generative techniques for producing artificial gene expression samples.",
+      "image": "/co-exp.jpg"
+    },
+    {
+      "name": "Alternative Neural Network Training for Medical Cases",
+      "description": "Metaheuristics applied to the configuration of weights and biases in neural networks for medical diagnosis support.",
+      "image": "/nn_opt.jpg"
+    },
+    {
+      "name": "Multiple Sequence Alignment",
+      "description": "Design of metaheuristics for the multiple alignment of DNA, RNA, and protein sequences.",
+      "image": "/a.jpeg"
+    },
+    {
+      "name": "DNA Fragment Assembly and RNA Structure Design",
+      "description": "Application of multi and single-objective metaheuristics for DNA fragment assembly and design of RNA molecules that fit specific folding structures.",
+      "image": "/rna.png"
+    }
+  ]
+}

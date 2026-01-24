@@ -1,0 +1,29 @@
+[
+  {
+    "name": "IJS Ingeniería Eléctrica",
+    "position": "Freelance PHP/Laravel Developer",
+    "url": null,
+    "startDate": "2020-07-01",
+    "endDate": "2020-09-01",
+    "summary": "Development of a custom-built budgeting system using the Laravel framework.",
+    "highlights": ["PHP", "Laravel", "Budget Management Systems"]
+  },
+  {
+    "name": "Ricardo Moya Consortium Management",
+    "position": "Java Developer",
+    "url": null,
+    "startDate": "2017-11-01",
+    "endDate": "2018-03-01",
+    "summary": "Development of a comprehensive management system for property owner associations.",
+    "highlights": ["Java", "Administrative Management Systems"]
+  },
+  {
+    "name": "That Metal Shop",
+    "position": "WordPress/WooCommerce Developer",
+    "url": null,
+    "startDate": "2013-01-01",
+    "endDate": "2013-03-01",
+    "summary": "Implementation and development of an e-commerce website for apparel sales.",
+    "highlights": ["WordPress", "WooCommerce", "e-Commerce"]
+  }
+]

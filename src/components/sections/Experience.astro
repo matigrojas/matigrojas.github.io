@@ -1,6 +1,10 @@
 ---
 import Section from "@/components/Section.astro"
-import work from "../../../data/work.json"
+
+const { lang = 'es' } = Astro.props;
+
+// Cargamos el archivo correspondiente
+const work = (await import(`../../../data/${lang}/work.json`)).default;
 ---
 
 <Section>

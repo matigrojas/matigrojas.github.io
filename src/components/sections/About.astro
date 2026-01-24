@@ -1,6 +1,10 @@
 ---
 import Section from "@/components/Section.astro"
-import { basics } from "@cv"
+
+const { lang = 'es' } = Astro.props;
+
+// Cargamos el archivo correspondiente
+const basics = (await import(`../../../data/${lang}/cv.json`)).default.basics;
 
 function calcularEdad(fechaNacimiento) {
   const hoy = new Date();
@@ -18,9 +22,20 @@ const edad = calcularEdad(fechaNacimiento);
 
 // Reemplazamos {{edad}} por la edad actual en tiempo de build
 const summary = basics.summary.replace("{{edad}}", edad);
+
+const i18n = {
+  es: {
+    titulo: "Sobre mí"
+  },
+  en: {
+    titulo: "About"
+  }
+};
 ---
 
-<Section title="Sobre mí">
+
+
+<Section title={i18n[lang].titulo}>
   <p class="about-text">
     {summary}
   </p>
