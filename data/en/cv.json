@@ -1,13 +1,13 @@
 {
   "basics": {
     "name": "Matías Gabriel Rojas",
-    "label": "CONICET Doctoral Fellow • BSc in Computer Sciences",
+    "label": "CONICET Doctoral Fellow • Engineering Degree in Informatics",
     "image": "/me.webp",
     "email": "rojasmatias994@gmail.com",
     "email_conicet": "mrojas@mendoza-conicet.gob.ar",
     "phone": "+54 3764 135174",
     "url": "https://matigrojas.github.io",
-    "summary": "Bachelor of science in computer science. {{edad}} years old. Doctoral Fellow at Consejo Nacional de Investigaciónes Científicas y Técnicas (CONICET), Argentina. Member of the Computing and Data Sciences Group at the Interdisciplinary Institute of Basic Sciences (ICB). My research focuses on the design and implementation of computational intelligence algorithms applied to bioinformatics problems.",
+    "summary": "Informatics engineer. {{edad}} years old. Doctoral Fellow at Consejo Nacional de Investigaciónes Científicas y Técnicas (CONICET), Argentina. Member of the Computing and Data Sciences Group at the Interdisciplinary Institute of Basic Sciences (ICB). My research focuses on the design and implementation of computational intelligence algorithms applied to bioinformatics problems.",
     "location": {
       "address": "Av. Perú 730 Depto. 21.",
       "postalCode": "5502",
