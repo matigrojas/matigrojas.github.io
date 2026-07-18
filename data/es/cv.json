@@ -1,13 +1,13 @@
 {
     "basics": {
       "name": "Matías Gabriel Rojas",
-      "label": "Becario Doctoral CONICET • Ingeniero en Informática",
+      "label": "Becario Doctoral CONICET • Doctor en Ciencia y Tecnología",
       "image": "/me.webp",
       "email": "rojasmatias994@gmail.com",
       "email_conicet": "mrojas@mendoza-conicet.gob.ar",
       "phone": "+54 3764 135174",
       "url": "https://matigrojas.github.io",
-      "summary": "Ingeniero en informática. {{edad}} Años. Becario doctoral del Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET). Parte del Grupo de Ciencias de la Computación y los Datos en el Instituto Interdisciplinario de Ciencias Básicas (ICB). Mi trabajo se centra en el diseño e implementación de algoritmos de inteligencia computacional aplicados a problemas de bioinformática.",
+      "summary": "Doctor en Ciencia y Tecnología e Ingeniero en Informática. {{edad}} años. Becario doctoral del Consejo Nacional de Investigaciones Científicas y Técnicas (CONICET) e integrante del Grupo de Ciencias de la Computación y los Datos del Instituto Interdisciplinario de Ciencias Básicas (ICB). Mi investigación se enfoca en el desarrollo de métodos de inteligencia computacional para la resolución de problemas de bioinformática, con énfasis en aprendizaje automático, optimización y diseño asistido de fármacos.",
       "location": {
         "address": "Av. Perú 730 Depto. 21.",
         "postalCode": "5502",
@@ -49,25 +49,26 @@
     "education": [{
       "institution": "Universidad Nacional de Cuyo",
       "url": "https://fcen.uncuyo.edu.ar/",
-      "area": "Doctorado en Ciencia y Tecnología",
+      "area": "Doctorado en Ciencia y Tecnología (Calificación: Sobresaliente con Mención de Honor)",
       "studyType": "Doctorado",
-      "startDate": "2022-01-02"
+      "startDate": "2022-01-04",
+      "endDate": "2026-07-01"
     },
     {
       "institution": "Universidad Gastón Dachary",
       "url": "https://www.uugd.edu.ar/",
-      "area": "Ingeniería en Informática",
+      "area": "Ingeniería en Informática (Calificación: 7.95/10.00)",
       "studyType": "Ingeniería",
-      "startDate": "2013-01-02",
-      "endDate": "2019-01-02"
+      "startDate": "2013-01-03",
+      "endDate": "2019-06-26"
     },
     {
       "institution": "Universidad Gastón Dachary",
       "url": "https://www.ugd.edu.ar",
-      "area": "Analista Universitario de Sistemas",
+      "area": "Analista Universitario de Sistemas (Calificación: 7.33/10.00)",
       "studyType": "Intermedio",
-      "startDate": "2013-01-02",
-      "endDate": "2017-01-02"
+      "startDate": "2013-01-04",
+      "endDate": "2017-12-18"
     }],
     "interests": [
       {

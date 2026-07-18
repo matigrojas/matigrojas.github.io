@@ -1,13 +1,13 @@
 {
   "basics": {
     "name": "Matías Gabriel Rojas",
-    "label": "CONICET Doctoral Fellow • Engineering Degree in Informatics",
+    "label": "CONICET Doctoral Fellow • Ph.D. in Science and Technology",
     "image": "/me.webp",
     "email": "rojasmatias994@gmail.com",
     "email_conicet": "mrojas@mendoza-conicet.gob.ar",
     "phone": "+54 3764 135174",
     "url": "https://matigrojas.github.io",
-    "summary": "Informatics engineer. {{edad}} years old. Doctoral Fellow at Consejo Nacional de Investigaciónes Científicas y Técnicas (CONICET), Argentina. Member of the Computing and Data Sciences Group at the Interdisciplinary Institute of Basic Sciences (ICB). My research focuses on the design and implementation of computational intelligence algorithms applied to bioinformatics problems.",
+    "summary": "Ph.D. in Science and Technology and Computer Engineering graduate. {{age}} years old. Doctoral Fellow at the National Scientific and Technical Research Council (CONICET) and member of the Computer and Data Science Group at the Interdisciplinary Institute of Basic Sciences (ICB). My research focuses on the development of computational intelligence methods for solving bioinformatics problems, with an emphasis on machine learning, optimization, and computer aided drug design.",
     "location": {
       "address": "Av. Perú 730 Depto. 21.",
       "postalCode": "5502",
@@ -50,25 +50,26 @@
     {
       "institution": "National University of Cuyo",
       "url": "https://fcen.uncuyo.edu.ar/",
-      "area": "PhD in Science and Technology",
+      "area": "PhD in Science and Technology (Mark: Summa Cum Laude)",
       "studyType": "Doctorate",
-      "startDate": "2022-01-02"
+      "startDate": "2022-01-04",
+      "endDate": "2026-07-01"
     },
     {
       "institution": "Gastón Dachary University",
       "url": "https://www.uugd.edu.ar/",
-      "area": "Engineering Degree in Informatics",
+      "area": "Engineering Degree in Informatics (Mark: 7.95/10.00)",
       "studyType": "Degree",
-      "startDate": "2013-01-02",
-      "endDate": "2019-01-02"
+      "startDate": "2013-01-03",
+      "endDate": "2019-06-26"
     },
     {
       "institution": "Gastón Dachary University",
       "url": "https://www.ugd.edu.ar",
-      "area": "Systems Analyst",
+      "area": "Systems Analyst (Mark: 7.33/10.00)",
       "studyType": "Degree",
-      "startDate": "2013-01-02",
-      "endDate": "2017-01-02"
+      "startDate": "2013-01-04",
+      "endDate": "2017-12-18"
     }
   ],
   "interests": [
