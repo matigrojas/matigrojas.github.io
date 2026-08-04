@@ -2,13 +2,17 @@
 const { currentLang } = Astro.props;
 const isEs = currentLang === 'es';
 
-// Obtenemos la ruta actual sin el prefijo del idioma para navegar correctamente
 const { pathname } = Astro.url;
 
-// Definimos la ruta de destino según el idioma actual
+// 1. Limpiamos cualquier prefijo de idioma existente (/en, /es, /en/, /es/) de la ruta actual
+const cleanPath = pathname.replace(/^\/(en|es)(\/|$)/, '/');
+
+// 2. Construimos la ruta de destino según el idioma al que queremos cambiar
+// Si actualmente es español, la nueva ruta debe ir hacia inglés (/en...)
+// Si actualmente es inglés, la nueva ruta va hacia español (limpia o con /es según tu estructura)
 const targetPath = isEs 
-  ? `/en${pathname}` // Si es ES, agregamos /en
-  : pathname.replace(/^\/en/, '') || '/'; // Si es EN, quitamos /en
+  ? `/en${cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath}`.replace(/\/+/g, '/')
+  : cleanPath || '/';
 ---
 
 <a 
@@ -59,7 +63,7 @@ const targetPath = isEs
   }
 
   .lang-toggle.is-en {
-    background-color: #007acc; /* Color activo cuando cambia a EN */
+    background-color: #007acc;
   }
 
   /* Etiquetas de texto dentro del toggle */
