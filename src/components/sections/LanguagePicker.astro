@@ -4,13 +4,17 @@ const isEs = currentLang === 'es';
 
 const { pathname } = Astro.url;
 
-// Limpiamos los prefijos /en o /es
-const cleanPath = pathname.replace(/^\/(en|es)(\/|$)/, '/');
+// 1. Extraemos la ruta limpia quitando /es o /en al inicio
+// Ejemplo: "/es/blog/post-1" o "/en/blog/post-1" -> "/blog/post-1"
+// Ejemplo: "/es" o "/en" -> "/"
+const cleanPath = pathname.replace(/^\/(en|es)(\/|$)/, '/') || '/';
 
-// Ruta según el estado actual
-const targetPath = isEs 
-  ? `/en${cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath}`.replace(/\/+/g, '/')
-  : cleanPath || '/';
+// Aseguramos que la ruta limpia empiece con "/" sin duplicar
+const formattedCleanPath = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
+
+// 2. Apuntamos explícitamente a /es/... o /en/...
+const targetLang = isEs ? 'en' : 'es';
+const targetPath = `/${targetLang}${formattedCleanPath}`.replace(/\/+/g, '/');
 ---
 
 <a 
