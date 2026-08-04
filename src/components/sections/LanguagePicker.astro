@@ -4,12 +4,10 @@ const isEs = currentLang === 'es';
 
 const { pathname } = Astro.url;
 
-// 1. Limpiamos cualquier prefijo de idioma existente (/en, /es, /en/, /es/) de la ruta actual
+// Limpiamos los prefijos /en o /es
 const cleanPath = pathname.replace(/^\/(en|es)(\/|$)/, '/');
 
-// 2. Construimos la ruta de destino según el idioma al que queremos cambiar
-// Si actualmente es español, la nueva ruta debe ir hacia inglés (/en...)
-// Si actualmente es inglés, la nueva ruta va hacia español (limpia o con /es según tu estructura)
+// Ruta según el estado actual
 const targetPath = isEs 
   ? `/en${cleanPath.startsWith('/') ? cleanPath : '/' + cleanPath}`.replace(/\/+/g, '/')
   : cleanPath || '/';
@@ -22,6 +20,7 @@ const targetPath = isEs
   role="switch"
   aria-checked={!isEs}
 >
+  <!-- La bolita actúa como la pastilla indicadora -->
   <span class="thumb"></span>
   <span class="label es">ES</span>
   <span class="label en">EN</span>
@@ -32,61 +31,65 @@ const targetPath = isEs
     position: relative;
     display: inline-flex;
     align-items: center;
-    width: 60px;
-    height: 30px;
-    background-color: #e2e8f0;
+    width: 68px;
+    height: 32px;
+    background-color: #f1f5f9; /* Fondo neutro claro */
+    border: 1px solid #cbd5e1;
     border-radius: 999px;
     padding: 3px;
     text-decoration: none;
     cursor: pointer;
     user-select: none;
-    transition: background-color 0.3s ease;
   }
 
-  /* Bolita deslizante (Thumb) */
+  /* La pastilla/deslizador activo */
   .thumb {
     position: absolute;
-    top: 3px;
-    left: 3px;
-    width: 24px;
-    height: 24px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    top: 2px;
+    left: 2px;
+    width: 32px;
+    height: 26px;
+    background-color: #ffffff; /* Pastilla blanca destacada */
+    border-radius: 999px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
   }
 
-  /* Posición del Thumb cuando el idioma es EN */
+  /* Mover la pastilla blanca hacia EN */
   .lang-toggle.is-en .thumb {
     transform: translateX(30px);
   }
 
-  .lang-toggle.is-en {
-    background-color: #007acc;
-  }
-
-  /* Etiquetas de texto dentro del toggle */
+  /* Textos dentro del toggle */
   .label {
     flex: 1;
     text-align: center;
     font-size: 0.75rem;
-    font-weight: 700;
-    color: #4a5568;
+    font-weight: 600;
+    color: #94a3b8; /* Idioma inactivo en gris suave */
     z-index: 2;
-    transition: color 0.3s ease;
+    transition: color 0.25s ease;
+  }
+
+  /* Destacar el texto según la posición activa */
+  .lang-toggle:not(.is-en) .label.es {
+    color: #0f172a; /* Idioma activo en texto oscuro */
+    font-weight: 700;
   }
 
   .lang-toggle.is-en .label.en {
-    color: #ffffff;
+    color: #0f172a; /* Idioma activo en texto oscuro */
+    font-weight: 700;
   }
 
-  .lang-toggle:not(.is-en) .label.es {
-    color: #007acc;
+  /* Hover suave sin simular un botón ON/OFF */
+  .lang-toggle:hover {
+    border-color: #94a3b8;
   }
 
   .lang-toggle:focus-visible {
-    outline: 2px solid #007acc;
+    outline: 2px solid #0f172a;
     outline-offset: 2px;
   }
 </style>
