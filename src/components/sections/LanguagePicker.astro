@@ -1,29 +1,88 @@
 ---
 const { currentLang } = Astro.props;
 const isEs = currentLang === 'es';
+
+// Obtenemos la ruta actual sin el prefijo del idioma para navegar correctamente
+const { pathname } = Astro.url;
+
+// Definimos la ruta de destino según el idioma actual
+const targetPath = isEs 
+  ? `/en${pathname}` // Si es ES, agregamos /en
+  : pathname.replace(/^\/en/, '') || '/'; // Si es EN, quitamos /en
 ---
-<div class="lang-picker">
-  <a href="/" class={isEs ? "active" : ""}>ES</a>
-  <span>|</span>
-  <a href="/en" class={!isEs ? "active" : ""}>EN</a>
-</div>
+
+<a 
+  href={targetPath} 
+  class:list={["lang-toggle", { "is-en": !isEs }]} 
+  aria-label={`Cambiar idioma a ${isEs ? 'Inglés' : 'Español'}`}
+  role="switch"
+  aria-checked={!isEs}
+>
+  <span class="thumb"></span>
+  <span class="label es">ES</span>
+  <span class="label en">EN</span>
+</a>
 
 <style>
-  .lang-picker {
-    display: flex;
-    gap: 0.5rem;
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: #666;
-  }
-  .lang-picker a {
+  .lang-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    background-color: #e2e8f0;
+    border-radius: 999px;
+    padding: 3px;
     text-decoration: none;
-    color: inherit;
-    transition: color 0.2s;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
   }
-  .lang-picker a:hover { color: #000; }
-  .lang-picker .active {
-    color: #007acc; /* Un azul profesional para resaltar el idioma activo */
-    text-decoration: underline;
+
+  /* Bolita deslizante (Thumb) */
+  .thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+  }
+
+  /* Posición del Thumb cuando el idioma es EN */
+  .lang-toggle.is-en .thumb {
+    transform: translateX(30px);
+  }
+
+  .lang-toggle.is-en {
+    background-color: #007acc; /* Color activo cuando cambia a EN */
+  }
+
+  /* Etiquetas de texto dentro del toggle */
+  .label {
+    flex: 1;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #4a5568;
+    z-index: 2;
+    transition: color 0.3s ease;
+  }
+
+  .lang-toggle.is-en .label.en {
+    color: #ffffff;
+  }
+
+  .lang-toggle:not(.is-en) .label.es {
+    color: #007acc;
+  }
+
+  .lang-toggle:focus-visible {
+    outline: 2px solid #007acc;
+    outline-offset: 2px;
   }
 </style>
