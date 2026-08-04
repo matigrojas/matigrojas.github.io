@@ -20,7 +20,7 @@ const targetPath = isEs
   role="switch"
   aria-checked={!isEs}
 >
-  <!-- La bolita actúa como la pastilla indicadora -->
+  <!-- La pelotita blanca deslizable -->
   <span class="thumb"></span>
   <span class="label es">ES</span>
   <span class="label en">EN</span>
@@ -33,8 +33,7 @@ const targetPath = isEs
     align-items: center;
     width: 68px;
     height: 32px;
-    background-color: #f1f5f9; /* Fondo neutro claro */
-    border: 1px solid #cbd5e1;
+    background-color: #e2e8f0; /* Fondo gris neutro constante */
     border-radius: 999px;
     padding: 3px;
     text-decoration: none;
@@ -42,52 +41,49 @@ const targetPath = isEs
     user-select: none;
   }
 
-  /* La pastilla/deslizador activo */
+  /* Pelotita / pastilla blanca indicadora */
   .thumb {
     position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 32px;
+    top: 3px;
+    left: 3px;
+    width: 31px;
     height: 26px;
-    background-color: #ffffff; /* Pastilla blanca destacada */
+    background-color: #ffffff; /* Pelotita siempre blanca */
     border-radius: 999px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
     transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
   }
 
-  /* Mover la pastilla blanca hacia EN */
+  /* Mover la pelotita a la derecha cuando es EN */
   .lang-toggle.is-en .thumb {
-    transform: translateX(30px);
+    transform: translateX(31px);
   }
 
-  /* Textos dentro del toggle */
+  /* Estilo base de los textos */
   .label {
     flex: 1;
     text-align: center;
     font-size: 0.75rem;
     font-weight: 600;
-    color: #94a3b8; /* Idioma inactivo en gris suave */
+    color: #64748b; /* Texto inactivo (gris) */
     z-index: 2;
-    transition: color 0.25s ease;
+    transition: color 0.25s ease, font-weight 0.25s ease;
   }
 
-  /* Destacar el texto según la posición activa */
+  /* Cuando está en ES: resalta ES en negro sobre la pelotita */
   .lang-toggle:not(.is-en) .label.es {
-    color: #0f172a; /* Idioma activo en texto oscuro */
+    color: #0f172a; /* Negro/Gris oscuro neutro */
     font-weight: 700;
   }
 
+  /* Cuando está en EN: resalta EN en negro sobre la pelotita */
   .lang-toggle.is-en .label.en {
-    color: #0f172a; /* Idioma activo en texto oscuro */
+    color: #0f172a; /* Negro/Gris oscuro neutro */
     font-weight: 700;
   }
 
-  /* Hover suave sin simular un botón ON/OFF */
-  .lang-toggle:hover {
-    border-color: #94a3b8;
-  }
-
+  /* Accesibilidad con teclado */
   .lang-toggle:focus-visible {
     outline: 2px solid #0f172a;
     outline-offset: 2px;
