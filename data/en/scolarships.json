@@ -1,6 +1,16 @@
 [
   {
     "category": "Research",
+    "title": "Posdoctoral Research Fellowship",
+    "institution": "CONICET",
+    "project": "Generation and evaluation of ligands for the p53 protein in low-data regimes using multi-objective metaheuristics and deep learning",
+    "period": "08/2026 — 07/2029",
+    "location": "Interdisciplinary Institute of Basic Sciences (ICB), Mendoza",
+    "details": "Advisor: Dr. Pablo Javier Vidal | Co-Advisor: Dr. Diego Martín Bustos",
+    "scope": "national"
+  },
+  {
+    "category": "Research",
     "title": "Doctoral Research Fellowship",
     "institution": "CONICET",
     "project": "Design and development of metaheuristic techniques applied to bioinformatics problems",

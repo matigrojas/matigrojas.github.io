@@ -1,6 +1,16 @@
 [
   {
     "category": "Investigación",
+    "title": "Beca Interna Postdoctoral",
+    "institution": "CONICET",
+    "project": "Generación y evaluación de ligandos para la proteína p53 en regímenes de datos limitados mediante metaheurísticas multiobjetivo y deep learning",
+    "period": "08/2026 — 07/2029",
+    "location": "Instituto Interdisciplinario de Ciencias Básicas (ICB), Mendoza",
+    "details": "Director: Dr. Pablo Javier Vidal | Co-Director: Dr. Diego Martín Bustos",
+    "scope": "national"
+  },
+  {
+    "category": "Investigación",
     "title": "Beca Interna Doctoral",
     "institution": "CONICET",
     "project": "Diseño y desarrollo de técnicas metaheurísticas aplicadas a problemas de bioinformática",
